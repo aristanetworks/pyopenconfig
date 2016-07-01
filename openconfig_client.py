@@ -19,20 +19,15 @@ import openconfig_resources
 _TIMEOUT_SECONDS = 30
 
 
-def run():
-    """Main loop"""
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--host', default='localhost',
-                        help='OpenConfig server host')
-    parser.add_argument('--port', type=int, default=6042,
-                        help='OpenConfig server port')
-    parser.add_argument('--subscribe', default='/',
-                        help='OpenConfig path to subscribe to')
-    args = parser.parse_args()
+def get(stub, path_str):
+    """Get and echo the response"""
+    response = stub.Get(openconfig_resources.make_get_request(path_str), _TIMEOUT_SECONDS)
+    print(response)
 
-    channel = implementations.insecure_channel(args.host, args.port)
-    stub = openconfig_pb2.beta_create_OpenConfig_stub(channel)
-    subscribe_request = openconfig_resources.make_subscribe_request(path_str=args.subscribe)
+
+def subscribe(stub, path_str):
+    """Subscribe and echo the stream"""
+    subscribe_request = openconfig_resources.make_subscribe_request(path_str=path_str)
     i = 0
     try:
         for response in stub.Subscribe([subscribe_request], _TIMEOUT_SECONDS):
@@ -43,6 +38,27 @@ def run():
             sys.stderr.write('EOF after %d updates\n' % i)
         else:
             raise
+
+
+def run():
+    """Main loop"""
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--host', default='localhost',
+                        help='OpenConfig server host')
+    parser.add_argument('--port', type=int, default=6042,
+                        help='OpenConfig server port')
+    parser.add_argument('--get',
+                        help='OpenConfig path to get')
+    parser.add_argument('--subscribe',
+                        help='OpenConfig path to subscribe to')
+    args = parser.parse_args()
+
+    channel = implementations.insecure_channel(args.host, args.port)
+    stub = openconfig_pb2.beta_create_OpenConfig_stub(channel)
+    if args.get:
+        get(stub, args.get)
+    elif args.subscribe:
+        subscribe(stub, args.subscribe)
 
 
 if __name__ == '__main__':

@@ -14,6 +14,12 @@ def make_path(path_str):
     return path
 
 
+def make_get_request(path_str='/'):
+    """Create a subscribe request from a string path"""
+    path = make_path(path_str)
+    return openconfig_pb2.GetRequest(path=[path])
+
+
 def make_subscribe_request(path_str='/'):
     """Create a subscribe request from a string path"""
     path = make_path(path_str)
