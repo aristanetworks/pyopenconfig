@@ -47,10 +47,11 @@ def run():
                         help='OpenConfig server host')
     parser.add_argument('--port', type=int, default=6042,
                         help='OpenConfig server port')
-    parser.add_argument('--get',
-                        help='OpenConfig path to get')
-    parser.add_argument('--subscribe',
-                        help='OpenConfig path to subscribe to')
+    group = parser.add_mutually_exclusive_group()
+    group.add_argument('--get',
+                       help='OpenConfig path to get')
+    group.add_argument('--subscribe',
+                       help='OpenConfig path to subscribe to')
     args = parser.parse_args()
 
     channel = implementations.insecure_channel(args.host, args.port)
@@ -59,6 +60,8 @@ def run():
         get(stub, args.get)
     elif args.subscribe:
         subscribe(stub, args.subscribe)
+    else:
+        subscribe(stub, '/')
 
 
 if __name__ == '__main__':
