@@ -15,6 +15,6 @@ set -e
 
 os=$1
 arch=$2
-cmd="fpm -s python -t rpm --rpm-os $os -a $arch --epoch 0 setup.py"
+cmd="fpm -n pyopenconfig -s python -t rpm --rpm-os $os -a $arch --epoch 0 setup.py"
 echo $cmd
 $cmd
