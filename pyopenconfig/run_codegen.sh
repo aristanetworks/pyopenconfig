@@ -3,20 +3,15 @@
 # Use of this source code is governed by the Apache License 2.0
 # that can be found in the COPYING file.
 
-protoc  --python_out=. --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_python_plugin` openconfig.proto
+set -e
 
-echo "# Copyright 2015 Google, Inc.
-#
-# Licensed under the Apache License, Version 2.0 (the \"License\");
-# you may not use this file except in compliance with the License.
-# You may obtain a copy of the License at
-#
-#    http://www.apache.org/licenses/LICENSE-2.0
-#
-# Unless required by applicable law or agreed to in writing, software
-# distributed under the License is distributed on an \"AS IS\" BASIS,
-# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-# See the License for the specific language governing permissions and
-# limitations under the License." > pb2.py
-cat openconfig_pb2.py >> pb2.py
-rm openconfig_pb2.py
+curl -s https://api.github.com/repos/openconfig/reference/git/refs/heads/master | jq -r .object.sha > reference_version
+version=$(cat reference_version)
+echo "Downloading openconfig.proto@$version"
+curl -s https://api.github.com/repos/openconfig/reference/contents/rpc/openconfig/openconfig.proto?ref=$version -H "Accept: application/vnd.github.VERSION.raw" > openconfig.proto
+protoc -I .:$GOPATH/src --python_out=. --grpc_out=. --plugin=protoc-gen-grpc=`which grpc_python_plugin` openconfig.proto
+# Fix up the import of any.proto (https://github.com/openconfig/reference/issues/24)
+sed -i "" "s/github.com.golang.protobuf.ptypes.any/google.protobuf/" openconfig_pb2.py
+sed -i "" "s/github_dot_com_dot_golang_dot_protobuf_dot_ptypes_dot_any_dot_any__pb2/google_dot_protobuf_dot_any__pb2/" openconfig_pb2.py
+mv -v openconfig_pb2.py pb2.py
+rm openconfig.proto openconfig_pb2.py.bak
