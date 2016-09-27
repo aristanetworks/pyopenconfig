@@ -10,7 +10,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="pyopenconfig",
-    version="0.1",
+    version="0.0.2",
     packages=find_packages(),
     scripts=['openconfig_client.py'],
 
