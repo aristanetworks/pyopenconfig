@@ -13,7 +13,7 @@ import sys
 from grpc.beta import implementations
 import grpc.framework.interfaces.face
 
-import pyopenconfig.pb2
+import pyopenconfig.openconfig_pb2
 import pyopenconfig.resources
 
 _TIMEOUT_SECONDS = 30
@@ -56,7 +56,7 @@ def run():
     args = parser.parse_args()
 
     channel = implementations.insecure_channel(args.host, args.port)
-    stub = pyopenconfig.pb2.beta_create_OpenConfig_stub(channel)
+    stub = pyopenconfig.openconfig_pb2.beta_create_OpenConfig_stub(channel)
     if args.get:
         get(stub, args.get)
     elif args.subscribe:
