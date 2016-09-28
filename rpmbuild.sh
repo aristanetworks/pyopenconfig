@@ -15,6 +15,7 @@ set -e
 
 os=$1
 arch=$2
-cmd="fpm -n pyopenconfig -s python -t rpm --rpm-os $os -a $arch --epoch 0 setup.py"
+version=$(git describe --tags --match "v[0-9]*" --abbrev=7 HEAD)
+cmd="fpm -v $version -n pyopenconfig -s python -t rpm --rpm-os $os -a $arch --epoch 0 setup.py"
 echo $cmd
 $cmd
