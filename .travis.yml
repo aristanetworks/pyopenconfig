@@ -2,7 +2,9 @@ language: python
 python:
   - "2.7"
 install: CC=gcc-4.9 CXX=g++-4.9 pip install .
-script: pylint openconfig_client.py setup.py pyopenconfig/resources.py
+script:
+  - pip install pylint
+  - pylint openconfig_client.py setup.py pyopenconfig/resources.py
 addons:
   apt:
     sources:
