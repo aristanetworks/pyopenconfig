@@ -4,6 +4,8 @@
 
 Python client and library for the [OpenConfig](http://openconfig.net) gRPC interface.
 
+The version of the gRPC proto definition being uses is tracked in [pyopenconfig/reference_version](pyopenconfig/reference_version).
+
 ## Installation
 
 ```
