@@ -21,7 +21,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='openconfig.proto',
   package='openconfig',
   syntax='proto3',
-  serialized_pb=_b('\n\x10openconfig.proto\x12\nopenconfig\x1a\x19google/protobuf/any.proto\"\x98\x01\n\x0cNotification\x12\x11\n\ttimestamp\x18\x01 \x01(\x03\x12 \n\x06prefix\x18\x02 \x01(\x0b\x32\x10.openconfig.Path\x12\r\n\x05\x61lias\x18\x03 \x01(\t\x12\"\n\x06update\x18\x04 \x03(\x0b\x32\x12.openconfig.Update\x12 \n\x06\x64\x65lete\x18\x05 \x03(\x0b\x32\x10.openconfig.Path\"J\n\x06Update\x12\x1e\n\x04path\x18\x01 \x01(\x0b\x32\x10.openconfig.Path\x12 \n\x05value\x18\x02 \x01(\x0b\x32\x11.openconfig.Value\"\x17\n\x04Path\x12\x0f\n\x07\x65lement\x18\x01 \x03(\t\"D\n\x05Value\x12\r\n\x05value\x18\x01 \x01(\x0c\x12\x1e\n\x04type\x18\x02 \x01(\x0e\x32\x10.openconfig.Type\x12\x0c\n\x04name\x18\x03 \x01(\t\"\x93\x01\n\x10GetModelsRequest\x12\x37\n\x0crequest_type\x18\x01 \x01(\x0e\x32!.openconfig.GetModelsRequest.Type\x12%\n\x05query\x18\x02 \x01(\x0b\x32\x16.openconfig.ModelQuery\"\x1f\n\x04Type\x12\x0b\n\x07SUMMARY\x10\x00\x12\n\n\x06\x44\x45TAIL\x10\x01\">\n\nModelQuery\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\":\n\x11GetModelsResponse\x12%\n\x06models\x18\x01 \x03(\x0b\x32\x15.openconfig.ModelData\"\xbc\x01\n\tModelData\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x04 \x01(\x0c\x12.\n\nmodel_type\x18\x05 \x01(\x0e\x32\x1a.openconfig.ModelData.Type\"?\n\x04Type\x12\n\n\x06MODULE\x10\x00\x12\n\n\x06\x42UNDLE\x10\x01\x12\x10\n\x0c\x41UGMENTATION\x10\x03\x12\r\n\tDEVIATION\x10\x04\"\xca\x01\n\nGetRequest\x12 \n\x06prefix\x18\x01 \x01(\x0b\x32\x10.openconfig.Path\x12\x1e\n\x04path\x18\x02 \x03(\x0b\x32\x10.openconfig.Path\x12)\n\x04type\x18\x03 \x01(\x0e\x32\x1b.openconfig.GetRequest.Type\x12\x16\n\x0e\x63\x61\x63he_interval\x18\x04 \x01(\x03\"7\n\x04Type\x12\x07\n\x03\x41LL\x10\x00\x12\n\n\x06\x43ONFIG\x10\x01\x12\t\n\x05STATE\x10\x02\x12\x0f\n\x0bOPERATIONAL\x10\x03\"=\n\x0bGetResponse\x12.\n\x0cnotification\x18\x01 \x03(\x0b\x32\x18.openconfig.Notification\"\x99\x01\n\nSetRequest\x12 \n\x06prefix\x18\x01 \x01(\x0b\x32\x10.openconfig.Path\x12 \n\x06\x64\x65lete\x18\x02 \x03(\x0b\x32\x10.openconfig.Path\x12#\n\x07replace\x18\x03 \x03(\x0b\x32\x12.openconfig.Update\x12\"\n\x06update\x18\x04 \x03(\x0b\x32\x12.openconfig.Update\"]\n\x0bSetResponse\x12 \n\x06prefix\x18\x01 \x01(\x0b\x32\x10.openconfig.Path\x12,\n\x08response\x18\x02 \x03(\x0b\x32\x1a.openconfig.UpdateResponse\"\xde\x01\n\x0eUpdateResponse\x12\x11\n\ttimestamp\x18\x01 \x01(\x03\x12\x1e\n\x04path\x18\x02 \x01(\x0b\x32\x10.openconfig.Path\x12\"\n\x07message\x18\x03 \x01(\x0b\x32\x11.openconfig.Error\x12\x30\n\x02op\x18\x04 \x01(\x0e\x32$.openconfig.UpdateResponse.Operation\"C\n\tOperation\x12\x11\n\rNOT_SPECIFIED\x10\x00\x12\n\n\x06\x44\x45LETE\x10\x01\x12\x0b\n\x07REPLACE\x10\x02\x12\n\n\x06UPDATE\x10\x03\"J\n\x05\x45rror\x12\x0c\n\x04\x63ode\x18\x01 \x01(\r\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\"\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x14.google.protobuf.Any\"\xf3\x01\n\x10SubscribeRequest\x12\x31\n\tsubscribe\x18\x01 \x01(\x0b\x32\x1c.openconfig.SubscriptionListH\x00\x12*\n\theartbeat\x18\x02 \x01(\x0b\x32\x15.openconfig.HeartbeatH\x00\x12\'\n\x04poll\x18\x03 \x01(\x0b\x32\x17.openconfig.PollRequestH\x00\x12(\n\x07\x61liases\x18\x04 \x01(\x0b\x32\x15.openconfig.AliasListH\x00\x12\"\n\x05proxy\x18\x05 \x01(\x0b\x32\x13.openconfig.ProxiesB\t\n\x07request\"\xf7\x01\n\x10SubscriptionList\x12 \n\x06prefix\x18\x01 \x01(\x0b\x32\x10.openconfig.Path\x12.\n\x0csubscription\x18\x02 \x03(\x0b\x32\x18.openconfig.Subscription\x12\x13\n\x0buse_aliases\x18\x03 \x01(\x08\x12#\n\x03qos\x18\x04 \x01(\x0b\x32\x16.openconfig.QOSMarking\x12/\n\x04mode\x18\x05 \x01(\x0e\x32!.openconfig.SubscriptionList.Mode\"&\n\x04Mode\x12\n\n\x06STREAM\x10\x00\x12\x08\n\x04ONCE\x10\x01\x12\x08\n\x04POLL\x10\x02\"\xab\x01\n\x0cSubscription\x12\x1e\n\x04path\x18\x01 \x01(\x0b\x32\x10.openconfig.Path\x12*\n\x04mode\x18\x02 \x01(\x0e\x32\x1c.openconfig.SubscriptionMode\x12\x17\n\x0fsample_interval\x18\x03 \x01(\x04\x12\x1a\n\x12suppress_redundant\x18\x04 \x01(\x08\x12\x1a\n\x12heartbeat_interval\x18\x05 \x01(\x04\"\x1d\n\nQOSMarking\x12\x0f\n\x07marking\x18\x01 \x01(\r\"-\n\tAliasList\x12 \n\x05\x61lias\x18\x01 \x03(\x0b\x32\x11.openconfig.Alias\"H\n\x05\x41lias\x12\x1e\n\x04path\x18\x01 \x01(\x0b\x32\x10.openconfig.Path\x12\x1f\n\x05\x61lias\x18\x02 \x01(\x0b\x32\x10.openconfig.Path\"\r\n\x0bPollRequest\"U\n\x07Proxies\x12 \n\x05proxy\x18\x01 \x03(\x0b\x32\x11.openconfig.Proxy\x12\x13\n\x0btarget_name\x18\x02 \x01(\t\x12\x13\n\x0b\x63lient_name\x18\x03 \x01(\t\"&\n\x05Proxy\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"\x90\x01\n\x11SubscribeResponse\x12*\n\x06update\x18\x01 \x01(\x0b\x32\x18.openconfig.NotificationH\x00\x12*\n\theartbeat\x18\x02 \x01(\x0b\x32\x15.openconfig.HeartbeatH\x00\x12\x17\n\rsync_response\x18\x03 \x01(\x08H\x00\x42\n\n\x08response\"\x1d\n\tHeartbeat\x12\x10\n\x08interval\x18\x01 \x01(\x04\"\x8f\x01\n\nUDPWrapper\x12\x1c\n\x02id\x18\x01 \x01(\x0b\x32\x10.openconfig.Path\x12\x1a\n\x12transmit_timestamp\x18\x02 \x01(\x04\x12\x17\n\x0fsequence_number\x18\x03 \x01(\x04\x12.\n\x0cnotification\x18\x04 \x03(\x0b\x32\x18.openconfig.Notification*\x1b\n\x04Type\x12\x08\n\x04JSON\x10\x00\x12\t\n\x05\x42YTES\x10\x01*A\n\x10SubscriptionMode\x12\x12\n\x0eTARGET_DEFINED\x10\x00\x12\r\n\tON_CHANGE\x10\x01\x12\n\n\x06SAMPLE\x10\x02\x32\x94\x02\n\nOpenConfig\x12\x36\n\x03Get\x12\x16.openconfig.GetRequest\x1a\x17.openconfig.GetResponse\x12H\n\tGetModels\x12\x1c.openconfig.GetModelsRequest\x1a\x1d.openconfig.GetModelsResponse\x12\x36\n\x03Set\x12\x16.openconfig.SetRequest\x1a\x17.openconfig.SetResponse\x12L\n\tSubscribe\x12\x1c.openconfig.SubscribeRequest\x1a\x1d.openconfig.SubscribeResponse(\x01\x30\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x10openconfig.proto\x12\nopenconfig\x1a\x19google/protobuf/any.proto\"\x98\x01\n\x0cNotification\x12\x11\n\ttimestamp\x18\x01 \x01(\x03\x12 \n\x06prefix\x18\x02 \x01(\x0b\x32\x10.openconfig.Path\x12\r\n\x05\x61lias\x18\x03 \x01(\t\x12\"\n\x06update\x18\x04 \x03(\x0b\x32\x12.openconfig.Update\x12 \n\x06\x64\x65lete\x18\x05 \x03(\x0b\x32\x10.openconfig.Path\"J\n\x06Update\x12\x1e\n\x04path\x18\x01 \x01(\x0b\x32\x10.openconfig.Path\x12 \n\x05value\x18\x02 \x01(\x0b\x32\x11.openconfig.Value\"\x17\n\x04Path\x12\x0f\n\x07\x65lement\x18\x01 \x03(\t\"D\n\x05Value\x12\r\n\x05value\x18\x01 \x01(\x0c\x12\x1e\n\x04type\x18\x02 \x01(\x0e\x32\x10.openconfig.Type\x12\x0c\n\x04name\x18\x03 \x01(\t\"\x93\x01\n\x10GetModelsRequest\x12\x37\n\x0crequest_type\x18\x01 \x01(\x0e\x32!.openconfig.GetModelsRequest.Type\x12%\n\x05query\x18\x02 \x01(\x0b\x32\x16.openconfig.ModelQuery\"\x1f\n\x04Type\x12\x0b\n\x07SUMMARY\x10\x00\x12\n\n\x06\x44\x45TAIL\x10\x01\">\n\nModelQuery\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\":\n\x11GetModelsResponse\x12%\n\x06models\x18\x01 \x03(\x0b\x32\x15.openconfig.ModelData\"\xbc\x01\n\tModelData\x12\x0c\n\x04name\x18\x01 \x01(\t\x12\x11\n\tnamespace\x18\x02 \x01(\t\x12\x0f\n\x07version\x18\x03 \x01(\t\x12\x0c\n\x04\x64\x61ta\x18\x04 \x01(\x0c\x12.\n\nmodel_type\x18\x05 \x01(\x0e\x32\x1a.openconfig.ModelData.Type\"?\n\x04Type\x12\n\n\x06MODULE\x10\x00\x12\n\n\x06\x42UNDLE\x10\x01\x12\x10\n\x0c\x41UGMENTATION\x10\x03\x12\r\n\tDEVIATION\x10\x04\"\xca\x01\n\nGetRequest\x12 \n\x06prefix\x18\x01 \x01(\x0b\x32\x10.openconfig.Path\x12\x1e\n\x04path\x18\x02 \x03(\x0b\x32\x10.openconfig.Path\x12)\n\x04type\x18\x03 \x01(\x0e\x32\x1b.openconfig.GetRequest.Type\x12\x16\n\x0e\x63\x61\x63he_interval\x18\x04 \x01(\x03\"7\n\x04Type\x12\x07\n\x03\x41LL\x10\x00\x12\n\n\x06\x43ONFIG\x10\x01\x12\t\n\x05STATE\x10\x02\x12\x0f\n\x0bOPERATIONAL\x10\x03\"=\n\x0bGetResponse\x12.\n\x0cnotification\x18\x01 \x03(\x0b\x32\x18.openconfig.Notification\"\x99\x01\n\nSetRequest\x12 \n\x06prefix\x18\x01 \x01(\x0b\x32\x10.openconfig.Path\x12 \n\x06\x64\x65lete\x18\x02 \x03(\x0b\x32\x10.openconfig.Path\x12#\n\x07replace\x18\x03 \x03(\x0b\x32\x12.openconfig.Update\x12\"\n\x06update\x18\x04 \x03(\x0b\x32\x12.openconfig.Update\"]\n\x0bSetResponse\x12 \n\x06prefix\x18\x01 \x01(\x0b\x32\x10.openconfig.Path\x12,\n\x08response\x18\x02 \x03(\x0b\x32\x1a.openconfig.UpdateResponse\"\xde\x01\n\x0eUpdateResponse\x12\x11\n\ttimestamp\x18\x01 \x01(\x03\x12\x1e\n\x04path\x18\x02 \x01(\x0b\x32\x10.openconfig.Path\x12\"\n\x07message\x18\x03 \x01(\x0b\x32\x11.openconfig.Error\x12\x30\n\x02op\x18\x04 \x01(\x0e\x32$.openconfig.UpdateResponse.Operation\"C\n\tOperation\x12\x11\n\rNOT_SPECIFIED\x10\x00\x12\n\n\x06\x44\x45LETE\x10\x01\x12\x0b\n\x07REPLACE\x10\x02\x12\n\n\x06UPDATE\x10\x03\"J\n\x05\x45rror\x12\x0c\n\x04\x63ode\x18\x01 \x01(\r\x12\x0f\n\x07message\x18\x02 \x01(\t\x12\"\n\x04\x64\x61ta\x18\x03 \x01(\x0b\x32\x14.google.protobuf.Any\"\xf3\x01\n\x10SubscribeRequest\x12\x31\n\tsubscribe\x18\x01 \x01(\x0b\x32\x1c.openconfig.SubscriptionListH\x00\x12*\n\theartbeat\x18\x02 \x01(\x0b\x32\x15.openconfig.HeartbeatH\x00\x12\'\n\x04poll\x18\x03 \x01(\x0b\x32\x17.openconfig.PollRequestH\x00\x12(\n\x07\x61liases\x18\x04 \x01(\x0b\x32\x15.openconfig.AliasListH\x00\x12\"\n\x05proxy\x18\x05 \x01(\x0b\x32\x13.openconfig.ProxiesB\t\n\x07request\"\xf7\x01\n\x10SubscriptionList\x12 \n\x06prefix\x18\x01 \x01(\x0b\x32\x10.openconfig.Path\x12.\n\x0csubscription\x18\x02 \x03(\x0b\x32\x18.openconfig.Subscription\x12\x13\n\x0buse_aliases\x18\x03 \x01(\x08\x12#\n\x03qos\x18\x04 \x01(\x0b\x32\x16.openconfig.QOSMarking\x12/\n\x04mode\x18\x05 \x01(\x0e\x32!.openconfig.SubscriptionList.Mode\"&\n\x04Mode\x12\n\n\x06STREAM\x10\x00\x12\x08\n\x04ONCE\x10\x01\x12\x08\n\x04POLL\x10\x02\"\xab\x01\n\x0cSubscription\x12\x1e\n\x04path\x18\x01 \x01(\x0b\x32\x10.openconfig.Path\x12*\n\x04mode\x18\x02 \x01(\x0e\x32\x1c.openconfig.SubscriptionMode\x12\x17\n\x0fsample_interval\x18\x03 \x01(\x04\x12\x1a\n\x12suppress_redundant\x18\x04 \x01(\x08\x12\x1a\n\x12heartbeat_interval\x18\x05 \x01(\x04\"\x1d\n\nQOSMarking\x12\x0f\n\x07marking\x18\x01 \x01(\r\"-\n\tAliasList\x12 \n\x05\x61lias\x18\x01 \x03(\x0b\x32\x11.openconfig.Alias\"H\n\x05\x41lias\x12\x1e\n\x04path\x18\x01 \x01(\x0b\x32\x10.openconfig.Path\x12\x1f\n\x05\x61lias\x18\x02 \x01(\x0b\x32\x10.openconfig.Path\"\r\n\x0bPollRequest\"U\n\x07Proxies\x12 \n\x05proxy\x18\x01 \x03(\x0b\x32\x11.openconfig.Proxy\x12\x13\n\x0btarget_name\x18\x02 \x01(\t\x12\x13\n\x0b\x63lient_name\x18\x03 \x01(\t\"&\n\x05Proxy\x12\x0f\n\x07\x61\x64\x64ress\x18\x01 \x01(\t\x12\x0c\n\x04name\x18\x02 \x01(\t\"\x90\x01\n\x11SubscribeResponse\x12*\n\x06update\x18\x01 \x01(\x0b\x32\x18.openconfig.NotificationH\x00\x12*\n\theartbeat\x18\x02 \x01(\x0b\x32\x15.openconfig.HeartbeatH\x00\x12\x17\n\rsync_response\x18\x03 \x01(\x08H\x00\x42\n\n\x08response\"\x1d\n\tHeartbeat\x12\x10\n\x08interval\x18\x01 \x01(\x04\"\x8f\x01\n\nUDPWrapper\x12\x1c\n\x02id\x18\x01 \x01(\x0b\x32\x10.openconfig.Path\x12\x1a\n\x12transmit_timestamp\x18\x02 \x01(\x04\x12\x17\n\x0fsequence_number\x18\x03 \x01(\x04\x12.\n\x0cnotification\x18\x04 \x03(\x0b\x32\x18.openconfig.Notification*&\n\x04Type\x12\x08\n\x04JSON\x10\x00\x12\t\n\x05\x42YTES\x10\x01\x12\t\n\x05PROTO\x10\x02*A\n\x10SubscriptionMode\x12\x12\n\x0eTARGET_DEFINED\x10\x00\x12\r\n\tON_CHANGE\x10\x01\x12\n\n\x06SAMPLE\x10\x02\x32\x94\x02\n\nOpenConfig\x12\x36\n\x03Get\x12\x16.openconfig.GetRequest\x1a\x17.openconfig.GetResponse\x12H\n\tGetModels\x12\x1c.openconfig.GetModelsRequest\x1a\x1d.openconfig.GetModelsResponse\x12\x36\n\x03Set\x12\x16.openconfig.SetRequest\x1a\x17.openconfig.SetResponse\x12L\n\tSubscribe\x12\x1c.openconfig.SubscribeRequest\x1a\x1d.openconfig.SubscribeResponse(\x01\x30\x01\x62\x06proto3')
   ,
   dependencies=[google_dot_protobuf_dot_any__pb2.DESCRIPTOR,])
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
@@ -40,11 +40,15 @@ _TYPE = _descriptor.EnumDescriptor(
       name='BYTES', index=1, number=1,
       options=None,
       type=None),
+    _descriptor.EnumValueDescriptor(
+      name='PROTO', index=2, number=2,
+      options=None,
+      type=None),
   ],
   containing_type=None,
   options=None,
   serialized_start=2958,
-  serialized_end=2985,
+  serialized_end=2996,
 )
 _sym_db.RegisterEnumDescriptor(_TYPE)
 
@@ -70,14 +74,15 @@ _SUBSCRIPTIONMODE = _descriptor.EnumDescriptor(
   ],
   containing_type=None,
   options=None,
-  serialized_start=2987,
-  serialized_end=3052,
+  serialized_start=2998,
+  serialized_end=3063,
 )
 _sym_db.RegisterEnumDescriptor(_SUBSCRIPTIONMODE)
 
 SubscriptionMode = enum_type_wrapper.EnumTypeWrapper(_SUBSCRIPTIONMODE)
 JSON = 0
 BYTES = 1
+PROTO = 2
 TARGET_DEFINED = 0
 ON_CHANGE = 1
 SAMPLE = 2
@@ -1641,224 +1646,249 @@ UDPWrapper = _reflection.GeneratedProtocolMessageType('UDPWrapper', (_message.Me
 _sym_db.RegisterMessage(UDPWrapper)
 
 
-import grpc
-from grpc.beta import implementations as beta_implementations
-from grpc.beta import interfaces as beta_interfaces
-from grpc.framework.common import cardinality
-from grpc.framework.interfaces.face import utilities as face_utilities
+try:
+  # THESE ELEMENTS WILL BE DEPRECATED.
+  # Please use the generated *_pb2_grpc.py files instead.
+  import grpc
+  from grpc.framework.common import cardinality
+  from grpc.framework.interfaces.face import utilities as face_utilities
+  from grpc.beta import implementations as beta_implementations
+  from grpc.beta import interfaces as beta_interfaces
 
 
-class OpenConfigStub(object):
+  class OpenConfigStub(object):
 
-  def __init__(self, channel):
-    """Constructor.
+    def __init__(self, channel):
+      """Constructor.
 
-    Args:
-      channel: A grpc.Channel.
-    """
-    self.Get = channel.unary_unary(
-        '/openconfig.OpenConfig/Get',
-        request_serializer=GetRequest.SerializeToString,
-        response_deserializer=GetResponse.FromString,
-        )
-    self.GetModels = channel.unary_unary(
-        '/openconfig.OpenConfig/GetModels',
-        request_serializer=GetModelsRequest.SerializeToString,
-        response_deserializer=GetModelsResponse.FromString,
-        )
-    self.Set = channel.unary_unary(
-        '/openconfig.OpenConfig/Set',
-        request_serializer=SetRequest.SerializeToString,
-        response_deserializer=SetResponse.FromString,
-        )
-    self.Subscribe = channel.stream_stream(
-        '/openconfig.OpenConfig/Subscribe',
-        request_serializer=SubscribeRequest.SerializeToString,
-        response_deserializer=SubscribeResponse.FromString,
-        )
-
-
-class OpenConfigServicer(object):
-
-  def Get(self, request, context):
-    """Get requests a single snapshot of specified data.  A Get request may
-    contain a hint that the request will be repeated (i.e., polling).
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def GetModels(self, request, context):
-    """GetModels returns information about the YANG models supported by the
-    target.
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Set(self, request, context):
-    """Set is the primary function for sending configuration data to the target.
-    It sets the paths contained in the SetRequest to the specified values. If
-    any of the paths are invalid, or are read-only, the SetResponse will
-    return an error. All paths in the SetRequest must be valid or the entire
-    request must be rejected. If a path specifies an internal node, rather than
-    a leaf, then the value must be the values of the node's children encoded
-    in JSON. Binary data in the tree must be base64 encoded, but if a path
-    specifies a leaf of binary type, it may be sent as binary. See SetRequest
-    for further explanation on the atomicity and idempotency of a Set
-    operation.
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
-
-  def Subscribe(self, request_iterator, context):
-    """Subscribe subscribes for streaming updates.  Streaming updates are provided
-    as a series of Notifications, each of which update a portion of the tree.
-    The initial SubscribeRequest contains a SubscriptionList, described below.
-    """
-    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-    context.set_details('Method not implemented!')
-    raise NotImplementedError('Method not implemented!')
+      Args:
+        channel: A grpc.Channel.
+      """
+      self.Get = channel.unary_unary(
+          '/openconfig.OpenConfig/Get',
+          request_serializer=GetRequest.SerializeToString,
+          response_deserializer=GetResponse.FromString,
+          )
+      self.GetModels = channel.unary_unary(
+          '/openconfig.OpenConfig/GetModels',
+          request_serializer=GetModelsRequest.SerializeToString,
+          response_deserializer=GetModelsResponse.FromString,
+          )
+      self.Set = channel.unary_unary(
+          '/openconfig.OpenConfig/Set',
+          request_serializer=SetRequest.SerializeToString,
+          response_deserializer=SetResponse.FromString,
+          )
+      self.Subscribe = channel.stream_stream(
+          '/openconfig.OpenConfig/Subscribe',
+          request_serializer=SubscribeRequest.SerializeToString,
+          response_deserializer=SubscribeResponse.FromString,
+          )
 
 
-def add_OpenConfigServicer_to_server(servicer, server):
-  rpc_method_handlers = {
-      'Get': grpc.unary_unary_rpc_method_handler(
-          servicer.Get,
-          request_deserializer=GetRequest.FromString,
-          response_serializer=GetResponse.SerializeToString,
-      ),
-      'GetModels': grpc.unary_unary_rpc_method_handler(
-          servicer.GetModels,
-          request_deserializer=GetModelsRequest.FromString,
-          response_serializer=GetModelsResponse.SerializeToString,
-      ),
-      'Set': grpc.unary_unary_rpc_method_handler(
-          servicer.Set,
-          request_deserializer=SetRequest.FromString,
-          response_serializer=SetResponse.SerializeToString,
-      ),
-      'Subscribe': grpc.stream_stream_rpc_method_handler(
-          servicer.Subscribe,
-          request_deserializer=SubscribeRequest.FromString,
-          response_serializer=SubscribeResponse.SerializeToString,
-      ),
-  }
-  generic_handler = grpc.method_handlers_generic_handler(
-      'openconfig.OpenConfig', rpc_method_handlers)
-  server.add_generic_rpc_handlers((generic_handler,))
+  class OpenConfigServicer(object):
+
+    def Get(self, request, context):
+      """Get requests a single snapshot of specified data.  A Get request may
+      contain a hint that the request will be repeated (i.e., polling).
+      """
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+    def GetModels(self, request, context):
+      """GetModels returns information about the YANG models supported by the
+      target.
+      """
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+    def Set(self, request, context):
+      """Set is the primary function for sending configuration data to the target.
+      It sets the paths contained in the SetRequest to the specified values. If
+      any of the paths are invalid, or are read-only, the SetResponse will
+      return an error. All paths in the SetRequest must be valid or the entire
+      request must be rejected. If a path specifies an internal node, rather than
+      a leaf, then the value must be the values of the node's children encoded
+      in JSON. Binary data in the tree must be base64 encoded, but if a path
+      specifies a leaf of binary type, it may be sent as binary. See SetRequest
+      for further explanation on the atomicity and idempotency of a Set
+      operation.
+      """
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+    def Subscribe(self, request_iterator, context):
+      """Subscribe subscribes for streaming updates.  Streaming updates are provided
+      as a series of Notifications, each of which update a portion of the tree.
+      The initial SubscribeRequest contains a SubscriptionList, described below.
+      """
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
 
 
-class BetaOpenConfigServicer(object):
-  def Get(self, request, context):
-    """Get requests a single snapshot of specified data.  A Get request may
-    contain a hint that the request will be repeated (i.e., polling).
-    """
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-  def GetModels(self, request, context):
-    """GetModels returns information about the YANG models supported by the
-    target.
-    """
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-  def Set(self, request, context):
-    """Set is the primary function for sending configuration data to the target.
-    It sets the paths contained in the SetRequest to the specified values. If
-    any of the paths are invalid, or are read-only, the SetResponse will
-    return an error. All paths in the SetRequest must be valid or the entire
-    request must be rejected. If a path specifies an internal node, rather than
-    a leaf, then the value must be the values of the node's children encoded
-    in JSON. Binary data in the tree must be base64 encoded, but if a path
-    specifies a leaf of binary type, it may be sent as binary. See SetRequest
-    for further explanation on the atomicity and idempotency of a Set
-    operation.
-    """
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-  def Subscribe(self, request_iterator, context):
-    """Subscribe subscribes for streaming updates.  Streaming updates are provided
-    as a series of Notifications, each of which update a portion of the tree.
-    The initial SubscribeRequest contains a SubscriptionList, described below.
-    """
-    context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+  def add_OpenConfigServicer_to_server(servicer, server):
+    rpc_method_handlers = {
+        'Get': grpc.unary_unary_rpc_method_handler(
+            servicer.Get,
+            request_deserializer=GetRequest.FromString,
+            response_serializer=GetResponse.SerializeToString,
+        ),
+        'GetModels': grpc.unary_unary_rpc_method_handler(
+            servicer.GetModels,
+            request_deserializer=GetModelsRequest.FromString,
+            response_serializer=GetModelsResponse.SerializeToString,
+        ),
+        'Set': grpc.unary_unary_rpc_method_handler(
+            servicer.Set,
+            request_deserializer=SetRequest.FromString,
+            response_serializer=SetResponse.SerializeToString,
+        ),
+        'Subscribe': grpc.stream_stream_rpc_method_handler(
+            servicer.Subscribe,
+            request_deserializer=SubscribeRequest.FromString,
+            response_serializer=SubscribeResponse.SerializeToString,
+        ),
+    }
+    generic_handler = grpc.method_handlers_generic_handler(
+        'openconfig.OpenConfig', rpc_method_handlers)
+    server.add_generic_rpc_handlers((generic_handler,))
 
 
-class BetaOpenConfigStub(object):
-  def Get(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    """Get requests a single snapshot of specified data.  A Get request may
-    contain a hint that the request will be repeated (i.e., polling).
-    """
-    raise NotImplementedError()
-  Get.future = None
-  def GetModels(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    """GetModels returns information about the YANG models supported by the
-    target.
-    """
-    raise NotImplementedError()
-  GetModels.future = None
-  def Set(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
-    """Set is the primary function for sending configuration data to the target.
-    It sets the paths contained in the SetRequest to the specified values. If
-    any of the paths are invalid, or are read-only, the SetResponse will
-    return an error. All paths in the SetRequest must be valid or the entire
-    request must be rejected. If a path specifies an internal node, rather than
-    a leaf, then the value must be the values of the node's children encoded
-    in JSON. Binary data in the tree must be base64 encoded, but if a path
-    specifies a leaf of binary type, it may be sent as binary. See SetRequest
-    for further explanation on the atomicity and idempotency of a Set
-    operation.
-    """
-    raise NotImplementedError()
-  Set.future = None
-  def Subscribe(self, request_iterator, timeout, metadata=None, with_call=False, protocol_options=None):
-    """Subscribe subscribes for streaming updates.  Streaming updates are provided
-    as a series of Notifications, each of which update a portion of the tree.
-    The initial SubscribeRequest contains a SubscriptionList, described below.
-    """
-    raise NotImplementedError()
+  class BetaOpenConfigServicer(object):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    def Get(self, request, context):
+      """Get requests a single snapshot of specified data.  A Get request may
+      contain a hint that the request will be repeated (i.e., polling).
+      """
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def GetModels(self, request, context):
+      """GetModels returns information about the YANG models supported by the
+      target.
+      """
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def Set(self, request, context):
+      """Set is the primary function for sending configuration data to the target.
+      It sets the paths contained in the SetRequest to the specified values. If
+      any of the paths are invalid, or are read-only, the SetResponse will
+      return an error. All paths in the SetRequest must be valid or the entire
+      request must be rejected. If a path specifies an internal node, rather than
+      a leaf, then the value must be the values of the node's children encoded
+      in JSON. Binary data in the tree must be base64 encoded, but if a path
+      specifies a leaf of binary type, it may be sent as binary. See SetRequest
+      for further explanation on the atomicity and idempotency of a Set
+      operation.
+      """
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def Subscribe(self, request_iterator, context):
+      """Subscribe subscribes for streaming updates.  Streaming updates are provided
+      as a series of Notifications, each of which update a portion of the tree.
+      The initial SubscribeRequest contains a SubscriptionList, described below.
+      """
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
 
-def beta_create_OpenConfig_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
-  request_deserializers = {
-    ('openconfig.OpenConfig', 'Get'): GetRequest.FromString,
-    ('openconfig.OpenConfig', 'GetModels'): GetModelsRequest.FromString,
-    ('openconfig.OpenConfig', 'Set'): SetRequest.FromString,
-    ('openconfig.OpenConfig', 'Subscribe'): SubscribeRequest.FromString,
-  }
-  response_serializers = {
-    ('openconfig.OpenConfig', 'Get'): GetResponse.SerializeToString,
-    ('openconfig.OpenConfig', 'GetModels'): GetModelsResponse.SerializeToString,
-    ('openconfig.OpenConfig', 'Set'): SetResponse.SerializeToString,
-    ('openconfig.OpenConfig', 'Subscribe'): SubscribeResponse.SerializeToString,
-  }
-  method_implementations = {
-    ('openconfig.OpenConfig', 'Get'): face_utilities.unary_unary_inline(servicer.Get),
-    ('openconfig.OpenConfig', 'GetModels'): face_utilities.unary_unary_inline(servicer.GetModels),
-    ('openconfig.OpenConfig', 'Set'): face_utilities.unary_unary_inline(servicer.Set),
-    ('openconfig.OpenConfig', 'Subscribe'): face_utilities.stream_stream_inline(servicer.Subscribe),
-  }
-  server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
-  return beta_implementations.server(method_implementations, options=server_options)
+  class BetaOpenConfigStub(object):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This class was generated
+    only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0."""
+    def Get(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      """Get requests a single snapshot of specified data.  A Get request may
+      contain a hint that the request will be repeated (i.e., polling).
+      """
+      raise NotImplementedError()
+    Get.future = None
+    def GetModels(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      """GetModels returns information about the YANG models supported by the
+      target.
+      """
+      raise NotImplementedError()
+    GetModels.future = None
+    def Set(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      """Set is the primary function for sending configuration data to the target.
+      It sets the paths contained in the SetRequest to the specified values. If
+      any of the paths are invalid, or are read-only, the SetResponse will
+      return an error. All paths in the SetRequest must be valid or the entire
+      request must be rejected. If a path specifies an internal node, rather than
+      a leaf, then the value must be the values of the node's children encoded
+      in JSON. Binary data in the tree must be base64 encoded, but if a path
+      specifies a leaf of binary type, it may be sent as binary. See SetRequest
+      for further explanation on the atomicity and idempotency of a Set
+      operation.
+      """
+      raise NotImplementedError()
+    Set.future = None
+    def Subscribe(self, request_iterator, timeout, metadata=None, with_call=False, protocol_options=None):
+      """Subscribe subscribes for streaming updates.  Streaming updates are provided
+      as a series of Notifications, each of which update a portion of the tree.
+      The initial SubscribeRequest contains a SubscriptionList, described below.
+      """
+      raise NotImplementedError()
 
 
-def beta_create_OpenConfig_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
-  request_serializers = {
-    ('openconfig.OpenConfig', 'Get'): GetRequest.SerializeToString,
-    ('openconfig.OpenConfig', 'GetModels'): GetModelsRequest.SerializeToString,
-    ('openconfig.OpenConfig', 'Set'): SetRequest.SerializeToString,
-    ('openconfig.OpenConfig', 'Subscribe'): SubscribeRequest.SerializeToString,
-  }
-  response_deserializers = {
-    ('openconfig.OpenConfig', 'Get'): GetResponse.FromString,
-    ('openconfig.OpenConfig', 'GetModels'): GetModelsResponse.FromString,
-    ('openconfig.OpenConfig', 'Set'): SetResponse.FromString,
-    ('openconfig.OpenConfig', 'Subscribe'): SubscribeResponse.FromString,
-  }
-  cardinalities = {
-    'Get': cardinality.Cardinality.UNARY_UNARY,
-    'GetModels': cardinality.Cardinality.UNARY_UNARY,
-    'Set': cardinality.Cardinality.UNARY_UNARY,
-    'Subscribe': cardinality.Cardinality.STREAM_STREAM,
-  }
-  stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
-  return beta_implementations.dynamic_stub(channel, 'openconfig.OpenConfig', cardinalities, options=stub_options)
+  def beta_create_OpenConfig_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_deserializers = {
+      ('openconfig.OpenConfig', 'Get'): GetRequest.FromString,
+      ('openconfig.OpenConfig', 'GetModels'): GetModelsRequest.FromString,
+      ('openconfig.OpenConfig', 'Set'): SetRequest.FromString,
+      ('openconfig.OpenConfig', 'Subscribe'): SubscribeRequest.FromString,
+    }
+    response_serializers = {
+      ('openconfig.OpenConfig', 'Get'): GetResponse.SerializeToString,
+      ('openconfig.OpenConfig', 'GetModels'): GetModelsResponse.SerializeToString,
+      ('openconfig.OpenConfig', 'Set'): SetResponse.SerializeToString,
+      ('openconfig.OpenConfig', 'Subscribe'): SubscribeResponse.SerializeToString,
+    }
+    method_implementations = {
+      ('openconfig.OpenConfig', 'Get'): face_utilities.unary_unary_inline(servicer.Get),
+      ('openconfig.OpenConfig', 'GetModels'): face_utilities.unary_unary_inline(servicer.GetModels),
+      ('openconfig.OpenConfig', 'Set'): face_utilities.unary_unary_inline(servicer.Set),
+      ('openconfig.OpenConfig', 'Subscribe'): face_utilities.stream_stream_inline(servicer.Subscribe),
+    }
+    server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
+    return beta_implementations.server(method_implementations, options=server_options)
+
+
+  def beta_create_OpenConfig_stub(channel, host=None, metadata_transformer=None, pool=None, pool_size=None):
+    """The Beta API is deprecated for 0.15.0 and later.
+
+    It is recommended to use the GA API (classes and functions in this
+    file not marked beta) for all further purposes. This function was
+    generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
+    request_serializers = {
+      ('openconfig.OpenConfig', 'Get'): GetRequest.SerializeToString,
+      ('openconfig.OpenConfig', 'GetModels'): GetModelsRequest.SerializeToString,
+      ('openconfig.OpenConfig', 'Set'): SetRequest.SerializeToString,
+      ('openconfig.OpenConfig', 'Subscribe'): SubscribeRequest.SerializeToString,
+    }
+    response_deserializers = {
+      ('openconfig.OpenConfig', 'Get'): GetResponse.FromString,
+      ('openconfig.OpenConfig', 'GetModels'): GetModelsResponse.FromString,
+      ('openconfig.OpenConfig', 'Set'): SetResponse.FromString,
+      ('openconfig.OpenConfig', 'Subscribe'): SubscribeResponse.FromString,
+    }
+    cardinalities = {
+      'Get': cardinality.Cardinality.UNARY_UNARY,
+      'GetModels': cardinality.Cardinality.UNARY_UNARY,
+      'Set': cardinality.Cardinality.UNARY_UNARY,
+      'Subscribe': cardinality.Cardinality.STREAM_STREAM,
+    }
+    stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)
+    return beta_implementations.dynamic_stub(channel, 'openconfig.OpenConfig', cardinalities, options=stub_options)
+except ImportError:
+  pass
 # @@protoc_insertion_point(module_scope)
