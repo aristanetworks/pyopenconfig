@@ -18,19 +18,20 @@ import pyopenconfig.resources
 
 _TIMEOUT_SECONDS = 30
 
-
-def get(stub, path_str):
+def get(stub, path_str, metadata):
     """Get and echo the response"""
-    response = stub.Get(pyopenconfig.resources.make_get_request(path_str), _TIMEOUT_SECONDS)
+    response = stub.Get(pyopenconfig.resources.make_get_request(path_str), _TIMEOUT_SECONDS,
+                        metadata=metadata)
     print(response)
 
 
-def subscribe(stub, path_str):
+def subscribe(stub, path_str, metadata):
     """Subscribe and echo the stream"""
     subscribe_request = pyopenconfig.resources.make_subscribe_request(path_str=path_str)
     i = 0
     try:
-        for response in stub.Subscribe([subscribe_request], _TIMEOUT_SECONDS):
+        for response in stub.Subscribe([subscribe_request], _TIMEOUT_SECONDS,
+                                       metadata=metadata):
             print(response)
             i += 1
     except grpc.framework.interfaces.face.face.AbortionError, error: # pylint: disable=catching-non-exception
@@ -48,6 +49,9 @@ def run():
                         help='OpenConfig server host')
     parser.add_argument('--port', type=int, default=6042,
                         help='OpenConfig server port')
+    parser.add_argument('--username', type=str, help='username')
+    parser.add_argument('--password', type=str, help='password')
+
     group = parser.add_mutually_exclusive_group()
     group.add_argument('--get',
                        help='OpenConfig path to perform a single-shot get')
@@ -55,14 +59,18 @@ def run():
                        help='OpenConfig path to subscribe to')
     args = parser.parse_args()
 
+    metadata = None
+    if args.username or args.password:
+        metadata = [("username", args.username), ("password", args.password)]
+
     channel = implementations.insecure_channel(args.host, args.port)
     stub = pyopenconfig.openconfig_pb2.beta_create_OpenConfig_stub(channel)
     if args.get:
-        get(stub, args.get)
+        get(stub, args.get, metadata)
     elif args.subscribe:
-        subscribe(stub, args.subscribe)
+        subscribe(stub, args.subscribe, metadata)
     else:
-        subscribe(stub, '/')
+        subscribe(stub, '/', metadata)
 
 
 if __name__ == '__main__':
