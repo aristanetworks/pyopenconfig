@@ -16,11 +16,9 @@ import grpc.framework.interfaces.face
 import pyopenconfig.openconfig_pb2
 import pyopenconfig.resources
 
-_TIMEOUT_SECONDS = 30
-
 def get(stub, path_str, metadata):
     """Get and echo the response"""
-    response = stub.Get(pyopenconfig.resources.make_get_request(path_str), _TIMEOUT_SECONDS,
+    response = stub.Get(pyopenconfig.resources.make_get_request(path_str),
                         metadata=metadata)
     print(response)
 
@@ -29,8 +27,7 @@ def subscribe(stub, path_str, metadata):
     subscribe_request = pyopenconfig.resources.make_subscribe_request(path_str=path_str)
     i = 0
     try:
-        for response in stub.Subscribe(subscribe_request, _TIMEOUT_SECONDS,
-                                       metadata=metadata):
+        for response in stub.Subscribe(subscribe_request, metadata=metadata):
             print(response)
             i += 1
     except grpc.framework.interfaces.face.face.AbortionError, error: # pylint: disable=catching-non-exception
