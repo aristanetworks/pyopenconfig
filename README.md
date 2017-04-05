@@ -21,6 +21,8 @@ optional arguments:
   -h, --help            show this help message and exit
   --host HOST           OpenConfig server host
   --port PORT           OpenConfig server port
+  --username USERNAME   username
+  --password PASSWORD   password
   --get GET             OpenConfig path to perform a single-shot get
   --subscribe SUBSCRIBE
                         OpenConfig path to subscribe to
