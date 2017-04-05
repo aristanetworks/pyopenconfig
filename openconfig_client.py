@@ -10,7 +10,7 @@ from __future__ import print_function
 import argparse
 import sys
 
-from grpc.beta import implementations
+import grpc
 import grpc.framework.interfaces.face
 
 import pyopenconfig.openconfig_pb2
@@ -24,13 +24,12 @@ def get(stub, path_str, metadata):
                         metadata=metadata)
     print(response)
 
-
 def subscribe(stub, path_str, metadata):
     """Subscribe and echo the stream"""
     subscribe_request = pyopenconfig.resources.make_subscribe_request(path_str=path_str)
     i = 0
     try:
-        for response in stub.Subscribe([subscribe_request], _TIMEOUT_SECONDS,
+        for response in stub.Subscribe(subscribe_request, _TIMEOUT_SECONDS,
                                        metadata=metadata):
             print(response)
             i += 1
@@ -63,8 +62,8 @@ def run():
     if args.username or args.password:
         metadata = [("username", args.username), ("password", args.password)]
 
-    channel = implementations.insecure_channel(args.host, args.port)
-    stub = pyopenconfig.openconfig_pb2.beta_create_OpenConfig_stub(channel)
+    channel = grpc.insecure_channel(args.host + ":" + str(args.port))
+    stub = pyopenconfig.openconfig_pb2.OpenConfigStub(channel)
     if args.get:
         get(stub, args.get, metadata)
     elif args.subscribe:
