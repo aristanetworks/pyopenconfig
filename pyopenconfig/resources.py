@@ -25,4 +25,4 @@ def make_subscribe_request(path_str='/'):
     path = make_path(path_str)
     subscription = pyopenconfig.openconfig_pb2.Subscription(path=path)
     subscription_list = pyopenconfig.openconfig_pb2.SubscriptionList(subscription=[subscription])
-    return pyopenconfig.openconfig_pb2.SubscribeRequest(subscribe=subscription_list)
+    yield pyopenconfig.openconfig_pb2.SubscribeRequest(subscribe=subscription_list)
