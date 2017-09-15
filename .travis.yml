@@ -6,8 +6,8 @@ script:
   - pip install pylint
   - pylint openconfig_client.py setup.py pyopenconfig/resources.py
 addons:		
--  apt:		
--    sources:		
--      - ubuntu-toolchain-r-test		
--    packages:		
--      - g++-4.9		
+-  apt:
+-    sources:
+-      - ubuntu-toolchain-r-test
+-    packages:
+-      - g++-4.9
