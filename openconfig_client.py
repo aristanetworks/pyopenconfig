@@ -16,11 +16,13 @@ import grpc.framework.interfaces.face
 import pyopenconfig.openconfig_pb2
 import pyopenconfig.resources
 
+
 def get(stub, path_str, metadata):
     """Get and echo the response"""
     response = stub.Get(pyopenconfig.resources.make_get_request(path_str),
                         metadata=metadata)
     print(response)
+
 
 def subscribe(stub, path_str, metadata):
     """Subscribe and echo the stream"""
@@ -30,7 +32,7 @@ def subscribe(stub, path_str, metadata):
         for response in stub.Subscribe(subscribe_request, metadata=metadata):
             print(response)
             i += 1
-    except grpc.framework.interfaces.face.face.AbortionError, error: # pylint: disable=catching-non-exception
+    except grpc.framework.interfaces.face.face.AbortionError, error:  # pylint: disable=catching-non-exception
         if error.code == grpc.StatusCode.OUT_OF_RANGE and error.details == 'EOF':
             # https://github.com/grpc/grpc/issues/7192
             sys.stderr.write('EOF after %d updates\n' % i)
@@ -40,7 +42,7 @@ def subscribe(stub, path_str, metadata):
 
 def run():
     """Main loop"""
-    parser = argparse.ArgumentParser()
+    parser = argparse.ArgumentParser(formatter_class=argparse.ArgumentDefaultsHelpFormatter)
     parser.add_argument('--host', default='localhost',
                         help='OpenConfig server host')
     parser.add_argument('--port', type=int, default=6042,
@@ -51,7 +53,7 @@ def run():
     group = parser.add_mutually_exclusive_group()
     group.add_argument('--get',
                        help='OpenConfig path to perform a single-shot get')
-    group.add_argument('--subscribe',
+    group.add_argument('--subscribe', default='/',
                        help='OpenConfig path to subscribe to')
     args = parser.parse_args()
 
@@ -63,10 +65,8 @@ def run():
     stub = pyopenconfig.openconfig_pb2.OpenConfigStub(channel)
     if args.get:
         get(stub, args.get, metadata)
-    elif args.subscribe:
-        subscribe(stub, args.subscribe, metadata)
     else:
-        subscribe(stub, '/', metadata)
+        subscribe(stub, args.subscribe, metadata)
 
 
 if __name__ == '__main__':

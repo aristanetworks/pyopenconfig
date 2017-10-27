@@ -29,9 +29,10 @@ optional arguments:
   --port PORT           OpenConfig server port
   --username USERNAME   username
   --password PASSWORD   password
-  --get GET             OpenConfig path to perform a single-shot get
+  --get GET             OpenConfig path to perform a single-shot get (default:
+                        None)
   --subscribe SUBSCRIBE
-                        OpenConfig path to subscribe to
+                        OpenConfig path to subscribe to (default: /)
 ```
 
 #### Sample usage
